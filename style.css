@@ -1,20 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+
+:root {
+    --body-bg-color: #0c0c0c;
+    --body-text-color: white;
+    --primary-gradient: linear-gradient(45deg, #f4bc60, #dc2c68, #7539a0);
+    --secondary-gradient: linear-gradient(45deg, black, #684cc4);
+    --timer-bg-color: white;
+    --timer-text-color: black;
+    --border-color: #ccc;
+}
+
+
 body {
-    background-color: #0c0c0c;
-    color: white;
+    background-color: var(--body-bg-color);
+    color: var(--body-text-color);
     margin: 0;
     padding: 0;
-    font-family: 'Arial', sans-serif;
+    font-family: 'Lato', sans-serif;
     overflow-x: hidden;
+    line-height: 1.8em;
 }
 
 header {
     position: sticky;
     top: 0;
     width: 100%;
-    background: linear-gradient(45deg, #f4bc60, #dc2c68, #7539a0);
+    background: var(--primary-gradient);
     padding: 10px 0px;
     text-align: center;
     z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 main {
@@ -23,10 +40,31 @@ main {
     text-align: center;
 }
 
+.moeda-caindo {
+    position: absolute;
+    top: 0;
+    left: calc(90vw - 20px);
+    width: 30px;
+    height: 30px;
+    pointer-events: none;
+    background: url("assets/moeda.png") center/cover no-repeat;
+    animation: fall 1.5s linear infinite;
+    z-index: -1;
+}
+
+@keyframes fall {
+    from {
+        transform: translateY(-10vh);
+    }
+    to {
+        transform: translateY(30vh);
+    }
+}
+
 .timer {
     display: inline-block;
-    background-color: white;
-    color: black;
+    background-color: var(--timer-bg-color);
+    color: var(--timer-text-color);
     font-weight: bold;
     padding: 5px 10px;
     border-radius: 5px;
@@ -35,7 +73,7 @@ main {
 }
 
 #introducao{
-    background: linear-gradient(45deg, black, #684cc4);
+    background: var(--secondary-gradient);
     padding: 20px;
     text-align: center;
 }
@@ -58,7 +96,7 @@ video {
 hr.divider {
     margin: 10px 0px;
     border: none;
-    border-top: 2px solid #ccc;
+    border-top: 2px solid var(--border-color);
 }
 
 #container-beneficios img{
@@ -67,10 +105,6 @@ hr.divider {
     height: auto;
     display: block;
     margin: 0 auto;
-}
-
-.beneficios {
-    display: none;
 }
 
 
@@ -94,7 +128,7 @@ hr.divider {
 }
 
 #cta {
-    background: linear-gradient(45deg, #f4bc60, #dc2c68, #684cc4);
+    background: var(--primary-gradient);
     padding: 20px;
     text-align: center;
 }
@@ -119,11 +153,11 @@ hr.divider {
 .lista-relatos img{
     width: 80;
     height: 80;
-    width: 50%;
+    width: 35%;
 }
 
 footer {
-    background: linear-gradient(45deg, black, #684cc4);
+    background: var(--secondary-gradient);
     color: white;
     text-align: center;
     padding: 20px;
@@ -151,27 +185,39 @@ button,
 }
 
 #introducao button {
-    background: linear-gradient(45deg, #f4bc60, #dc2c68, #684cc4);
+    background: var(--primary-gradient);
     color: white;
 }
 
 .btn-cta, header button {
-    background: linear-gradient(45deg, black, #684cc4);
+    background: var(--secondary-gradient);
     color: white;
     text-decoration: none;
+    margin: 10px;
 }
 
 @media screen and (min-width: 769px) {
     body {
-        font-size: 24px;
+        font-size: 20px;
     }
 
     header {
         padding: 10px 0;
+        
     }
 
     main {
         padding: 10px;
+    }
+
+    .moeda-caindo {
+        width: 50px;
+        height: 50px;
+        left: calc(90vw - 50px);
+    }
+
+    .btn-cta, button{
+        font-size: 24px;
     }
 
     .lista-conteudos, .lista-beneficios, .lista-relatos {
@@ -179,15 +225,57 @@ button,
         flex-direction: row;
     }
 
-    .lista-beneficios,
-    .lista-relatos {
+    .lista-beneficios, .lista-relatos {
         display: flex;
-        justify-content: space-around;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .beneficios, .relatos {
+        flex: 0 0 calc(33.33% - 20px);
         margin-bottom: 20px;
     }
 
-    .beneficios,
-    .relatos {
-        flex: 0 0 calc(33.33% - 20px);
+    .beneficios img, .relatos img {
+        width: 60%;
+        max-width: 100%;
+        height: auto;
+        margin-bottom: 10px;
+    }
+
+    .beneficios h1, .beneficios p, .relatos h1,
+    .relatos p {
+        text-align: center;
+    }
+
+    .controles-carrossel {
+        display: none;
+    }
+
+    footer nav {
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+    }
+    
+    footer nav a {
+        margin: 40px 20px;
+        color: white;
+    }
+}
+
+@media screen and (min-width: 1000px) {
+    body{
+        font-size: 24px;
+    }
+
+    button, .btn-cta{
+        padding: 1.5vw 3vw;
+    }
+
+    .moeda-caindo {
+        width: 80px;
+        height: 80px;
+        left: calc(90vw - 100px);
     }
 }

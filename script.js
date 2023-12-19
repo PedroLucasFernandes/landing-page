@@ -25,10 +25,10 @@ function startTimer(durationInSeconds, timerId) {
 document.addEventListener('DOMContentLoaded', function () {
     const timer1 = startTimer(15 * 60, "timer1");
     const timer2 = startTimer(15 * 60, "timer2");
-    const timer3 = startTimer(15 * 60, "timer3");
 });
 
 
+//BENEFICIOS
 let beneficioAtual = 1;
 
 function mostrarBeneficio(numeroBeneficio) {
@@ -52,9 +52,15 @@ function mostrarProximoBeneficio() {
 }
 
 document.addEventListener('DOMContentLoaded', function () {
-    mostrarBeneficio(beneficioAtual);
+    ajustarLayout();
+
+    window.addEventListener('resize', function () {
+        ajustarLayout();
+    });
 });
 
+
+// RELATOS
 let relatoAtual = 1;
 
 function mostrarRelato(numeroRelato) {
@@ -77,6 +83,26 @@ function mostrarProximoRelato() {
     mostrarRelato(relatoAtual);
 }
 
+function ajustarLayout() {
+    const width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+
+    if (width >= 769) {
+        for (let i = 1; i <= 3; i++) {
+            document.getElementById(`relato${i}`).style.display = 'block';
+            document.getElementById(`beneficio${i}`).style.display = 'block';
+        }
+        document.querySelector('.controles-carrossel').style.display = 'none';
+    } else {
+        mostrarRelato(relatoAtual);
+        mostrarBeneficio(beneficioAtual);
+        document.querySelector('.controles-carrossel').style.display = 'block';
+    }
+}
+
 document.addEventListener('DOMContentLoaded', function () {
-    mostrarRelato(relatoAtual);
+    ajustarLayout();
+
+    window.addEventListener('resize', function () {
+        ajustarLayout();
+    });
 });
