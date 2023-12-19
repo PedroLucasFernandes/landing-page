@@ -1,0 +1,193 @@
+body {
+    background-color: #0c0c0c;
+    color: white;
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    overflow-x: hidden;
+}
+
+header {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    background: linear-gradient(45deg, #f4bc60, #dc2c68, #7539a0);
+    padding: 10px 0px;
+    text-align: center;
+    z-index: 1000;
+}
+
+main {
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.timer {
+    display: inline-block;
+    background-color: white;
+    color: black;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+#introducao{
+    background: linear-gradient(45deg, black, #684cc4);
+    padding: 20px;
+    text-align: center;
+}
+
+video {
+    width: 640;
+    height: 360;
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+#container-conteudos, #container-beneficios, #container-relatos {
+    padding: 20px 0;
+    overflow: hidden;
+    position: relative;
+}
+
+hr.divider {
+    margin: 10px 0px;
+    border: none;
+    border-top: 2px solid #ccc;
+}
+
+#container-beneficios img{
+    width: 100%;
+    max-width: 360px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+.beneficios {
+    display: none;
+}
+
+
+.controles-carrossel {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.controles-carrossel button {
+    background-color: #684cc4;
+    color: white;
+    padding: 5px 10px;
+    margin: 0 5px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.conteudos, .beneficios, .relatos {
+    margin-bottom: 20px;
+}
+
+#cta {
+    background: linear-gradient(45deg, #f4bc60, #dc2c68, #684cc4);
+    padding: 20px;
+    text-align: center;
+}
+
+#cta a {
+    color: white;
+    text-decoration: none;
+}
+
+#cta p {
+    font-size: 18px;
+}
+
+#cta p span {
+    text-decoration: line-through;
+}
+
+#cta p.preco {
+    margin-bottom: 45px;
+}
+
+.lista-relatos img{
+    width: 80;
+    height: 80;
+    width: 50%;
+}
+
+footer {
+    background: linear-gradient(45deg, black, #684cc4);
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+footer nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+footer nav a {
+    color: white;
+    margin: 5px 0;
+}
+
+button,
+.btn-cta {
+    padding: 15px 30px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#introducao button {
+    background: linear-gradient(45deg, #f4bc60, #dc2c68, #684cc4);
+    color: white;
+}
+
+.btn-cta, header button {
+    background: linear-gradient(45deg, black, #684cc4);
+    color: white;
+    text-decoration: none;
+}
+
+@media screen and (min-width: 769px) {
+    body {
+        font-size: 24px;
+    }
+
+    header {
+        padding: 10px 0;
+    }
+
+    main {
+        padding: 10px;
+    }
+
+    .lista-conteudos, .lista-beneficios, .lista-relatos {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .lista-beneficios,
+    .lista-relatos {
+        display: flex;
+        justify-content: space-around;
+        margin-bottom: 20px;
+    }
+
+    .beneficios,
+    .relatos {
+        flex: 0 0 calc(33.33% - 20px);
+    }
+}
