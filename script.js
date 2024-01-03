@@ -1,3 +1,4 @@
+//TIMER
 function formatTime(seconds) {
     const minutes = Math.floor(seconds / 60);
     const remainingSeconds = seconds % 60;
@@ -83,6 +84,8 @@ function mostrarProximoRelato() {
     mostrarRelato(relatoAtual);
 }
 
+
+//LAYOUT
 function ajustarLayout() {
     const width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
 
