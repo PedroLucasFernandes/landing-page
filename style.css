@@ -47,7 +47,7 @@ main {
     width: 30px;
     height: 30px;
     pointer-events: none;
-    background: url("assets/moeda.png") center/cover no-repeat;
+    background: url("https://raw.githubusercontent.com/PedroLucasFernandes/assets-landing-page/master/moeda.png") center/cover no-repeat;
     animation: fall 1.5s linear infinite;
     z-index: -1;
 }
